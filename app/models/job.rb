@@ -1,4 +1,5 @@
 class Job < ActiveRecord::Base
+  acts_as_votable
   belongs_to :company
   has_many :records
   has_many :scores
