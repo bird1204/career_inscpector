@@ -1,0 +1,2 @@
+class CompanyRate < ScoreDetail
+end

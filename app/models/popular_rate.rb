@@ -1,0 +1,2 @@
+class PopularRate < ScoreDetail
+end

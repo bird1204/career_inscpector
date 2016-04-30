@@ -1,0 +1,10 @@
+// Place all the styles related to the landing_pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+  margin:0;
+  padding:0;
+  background: #000 image-url('background') center center fixed no-repeat;
+  -moz-background-size: cover;
+  background-size: cover;
+}

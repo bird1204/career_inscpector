@@ -1,0 +1,36 @@
+<nav class="transparent">
+  <ul class="right hide-on-med-and-down">
+  </ul>
+  <ul id="slide-out" class="side-nav">
+    <li><%=link_to '公司列表', jobs_path%></li>
+    <li><%=link_to '工作列表', jobs_path%></li>
+  </ul>
+</nav>
+
+<div class="container header">
+  <div class="row header">
+    <div class="col m3 l6 s12">
+      <%=image_tag 'logo'%>
+    </div>
+    <div class="col l6"><a href="#" data-activates="slide-out" class="button-collapse white-text right"><i class="material-icons">reorder</i></a></div>
+
+    <div class="col m10 s12 subtitle">
+      <h4 class="white-text">從資料找出好職缺<br>讓 Career Inspector 找出屬於你的好位置。</h4>
+    </div>
+    <div class="col m10 s12 subsubtitle">
+      <p class="white-text">初出社會，縱使沒有「慧根」，也要懂得「會跟」；或是您正在轉換跑道，在茫茫職缺海中，不知道哪一份工作適合您的個性與專長？
+        <br>
+        Career Inspector透過資料分析，找出您最在意的職缺流動率、職缺熱門度，透過我們的分析，面向名為適才適所的晨曦。
+      </p>
+    </div>
+    <div class="col push-m3 m6 s12 search">
+      <%= form_tag search_jobs_path , method: :get do %>
+      <div class="input-group">
+        <p>輸入關鍵字試試看</p>
+        <input type="text" name="search">
+        <input type="submit" value="找工作" class="btn blue-grey">
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

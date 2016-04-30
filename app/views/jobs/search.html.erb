@@ -1,0 +1,24 @@
+<%= @recordcount %>
+<br>
+<%= @pagecount %>
+<br>
+當前頁數<%= @page %>
+<br>
+總頁數<%= @totalpage %>
+<br>
+<hr>
+<% @datas.each do |data| %>
+代碼 <%= data['J'] %>
+<br>
+工作 <%= data['JOB'] %>
+<br>
+名稱 <%= data['NAME'] %>
+<br>
+職缺張貼時間 <%= data['APPEAR_DATE']%>
+<br>
+最低需求人次 <%= data['NEED_EMP']%>
+<br>
+最高需求人次 <%= data['NEED_EMP1']%>
+<%= data['ADDRESS']%>
+<hr>
+<% end %>

@@ -1,0 +1,2 @@
+class TurnoverRate < ScoreDetail
+end
