@@ -1,0 +1,40 @@
+.row.header{
+	margin-top: 5em;
+	display: none;
+}
+
+.row.header .subtitle{
+	padding-top: 2em;
+}
+
+.row.header .subtitle h3{
+	line-height: 150%;
+}
+
+.header .search{
+	padding-top: 20px;
+}
+
+.header .search form input{
+	width: 80%;
+}
+
+.main{
+	margin-top: 2em;
+	background-image: url('../images/background.jpg');
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+.main .sect1 p{
+	padding-bottom: 25px;
+}
+
+.main.container .sect1 .row{
+	padding-bottom: 25px;
+}
+
+.main h4{
+	letter-spacing: 10px;
+}
