@@ -55,6 +55,9 @@ class JobsController < ApplicationController
     elements.even? ? (array[center] + array[center+1])/2 : array[center]
   end
 
+  def get_total_score
+  end
+
   private
 
   def method_name
