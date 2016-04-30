@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  acts_as_votable
 
   def index
     if params[:company_id].present?
@@ -58,6 +59,6 @@ class JobsController < ApplicationController
   private
 
   def method_name
-    
+
   end
 end
