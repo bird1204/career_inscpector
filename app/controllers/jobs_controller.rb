@@ -31,21 +31,23 @@ class JobsController < ApplicationController
 
   def score
     @days = (1.days.ago.to_date..Date.today).map{ |date| date.strftime("%Y-%m-%d") }
-
+    @exist_day = 0
     Job.find_each(:batch_size => 1000) do |jobs|
-      @exist_day = 0
+
       @days.each do |day|
         @record = Record.find_by(job_id: jobs.id, record_date: '2016-04-30')
 
-        if @record.status = 1
+        if !@record.status.blank?
           @exist_day = @exist_day + 1
         end
       end
-      @number = @exist_day / 30
-      @number = @number * 100
+      @total_day = 30.0
+      @number = (@exist_day / @total_day) * 100
+
       score = jobs.scores.build(total: 0)
       score.save!
-      score.turnover_rates.build(number: @exist_day).save!
+      score.turnover_rates.build(number: @number).save!
+      @exist_day = 0
     end
   end
 
