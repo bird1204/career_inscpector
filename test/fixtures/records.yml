@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_id: 1
+  status: false
+  pay_low: 1
+  pay_high: 1
+  need_min: 1
+  need_max: 1
+  candidate: 1
+  record_date: 2016-04-30
+
+two:
+  job_id: 1
+  status: false
+  pay_low: 1
+  pay_high: 1
+  need_min: 1
+  need_max: 1
+  candidate: 1
+  record_date: 2016-04-30
