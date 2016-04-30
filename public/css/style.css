@@ -38,3 +38,15 @@
 .main h4{
 	letter-spacing: 10px;
 }
+
+.sect2{
+	padding: 2em 0;
+	text-align: center;
+}
+
+.sect .sect-text{
+	letter-spacing: 3px;
+	width: 80%;
+    padding-left: 20%;
+    text-align: center;
+}
