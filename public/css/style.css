@@ -6,8 +6,19 @@ body{
     background-size: cover;
 }
 
+nav{
+	box-shadow: none;
+}
+
+.header .button-collapse i{
+	padding-top: 20px;
+	font-size: 32px;
+	text-shadow:none;
+	color: rgba(255,255,255.0.5);
+}
+
 .row.header{
-	margin-top: 5em;
+	margin-top: 3em;
 	display: none;
 	text-shadow:1px 1px 3px #000;
 }
