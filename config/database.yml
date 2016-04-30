@@ -1,10 +1,10 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: 'career_inspector'
+  database: career_inspector
   pool: 25
   host: 127.0.0.1
   encoding: utf8
   username: root
-  password: 'password'
+  password: ceo810226
   port: 3306
