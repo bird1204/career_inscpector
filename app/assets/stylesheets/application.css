@@ -14,3 +14,7 @@
  *= require materialize
  *= require_self
  */
+
+nav{
+	box-shadow: none;
+}
