@@ -9,6 +9,11 @@ class JobsController < ApplicationController
     end
   end
 
+  def show
+    @job = Job.find(params[:id])
+    @recommend_jobs = Job.where('name like ? AND id != ?', "%#{@job.name[0..3]}%", @job.id)
+  end
+
   def search
     if params[:search].present?
       @url = "http://www.104.com.tw/i/apis/jobsearch.cfm?kws=#{params[:search]}&page=1&pgsz=2000&area=6001001000&order=2&fmt=8&cols=J,JOB,NAME,APPEAR_DATE,NEED_EMP,NEED_EMP1,ADDRESS"

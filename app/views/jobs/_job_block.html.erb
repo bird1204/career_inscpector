@@ -1,12 +1,7 @@
 <li class="collection-item avatar">
   <i class="circle green"><%=job.score%></i>
-  <%=link_to job_path(job.id) do %>
   <span class="title"><%=job.name%></span>
-  <%end%>
-  <p><%=job.company.name%><br>
+  <p>
     <%=job.record.paid_str%>
   </p>
-  <%=link_to nil, class: 'secondary-content' do %>
-  <%=job.appear_date%>
-  <%end%>
 </li>

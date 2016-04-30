@@ -8,6 +8,11 @@ class Job < ActiveRecord::Base
     scores.last.try(:total)
   end
 
+  def record
+    return nil unless records.present?
+    records.last
+  end
+
   def paid_str
     return "無資料" unless records.present?
 
