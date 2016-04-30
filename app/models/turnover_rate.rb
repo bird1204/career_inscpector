@@ -1,3 +1,2 @@
-class TurnoverRate < ActiveRecord::Base
-  belongs_to :job
+class TurnoverRate < ScoreDetail
 end

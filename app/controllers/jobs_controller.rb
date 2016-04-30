@@ -6,7 +6,7 @@ class JobsController < ApplicationController
 
   def search
     if params[:search].present?
-      @url = "http://www.104.com.tw/i/apis/jobsearch.cfm?kws=#{params[:search]}&page=1&pgsz=2000&area=6001001000&order=2&fmt=8&cols=J,JOB,NAME,APPEAR_DATE,NEED_EMP,NEED_EMP1"
+      @url = "http://www.104.com.tw/i/apis/jobsearch.cfm?kws=#{params[:search]}&page=1&pgsz=2000&area=6001001000&order=2&fmt=8&cols=J,JOB,NAME,APPEAR_DATE,NEED_EMP,NEED_EMP1,ADDRESS"
     else
       @url = "ㄏ"
     end
@@ -16,6 +16,14 @@ class JobsController < ApplicationController
     @page = @result['PAGE']
     @totalpage = @result['TOTALPAGE']
     @datas = @result['data']
+    @datas.each do |data|
+    end
+  end
+
+  def analytics
+    #@job = params[:id]
+    #@interval = @job.record.where(status: true, record_date)
+
   end
 
 
