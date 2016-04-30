@@ -6,5 +6,5 @@ development:
   host: 127.0.0.1
   encoding: utf8
   username: root
-  password: 
+  password: ceo810226
   port: 3306
