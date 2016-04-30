@@ -11,51 +11,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430065616) do
+ActiveRecord::Schema.define(version: 20160430072106) do
 
   create_table "companies", force: :cascade do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "site"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name",       limit: 255
+    t.string   "address",    limit: 255
+    t.string   "phone",      limit: 255
+    t.string   "site",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "jobs", force: :cascade do |t|
-    t.integer  "company_id"
-    t.string   "name"
-    t.string   "uuid"
+    t.integer  "company_id",  limit: 4
+    t.string   "name",        limit: 255
+    t.string   "uuid",        limit: 255
     t.date     "appear_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "records", force: :cascade do |t|
-    t.integer  "job_id"
+    t.integer  "job_id",      limit: 4
     t.boolean  "status"
-    t.integer  "pay_low"
-    t.integer  "pay_high"
-    t.integer  "need_min"
-    t.integer  "need_max"
-    t.integer  "candidate"
+    t.integer  "pay_low",     limit: 4
+    t.integer  "pay_high",    limit: 4
+    t.integer  "need_min",    limit: 4
+    t.integer  "need_max",    limit: 4
+    t.integer  "candidate",   limit: 4
     t.date     "record_date"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.text     "description", limit: 65535
   end
 
   create_table "score_details", force: :cascade do |t|
-    t.string   "type"
-    t.integer  "score"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "type",       limit: 255
+    t.integer  "score",      limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "scores", force: :cascade do |t|
-    t.integer  "job_id"
-    t.integer  "total"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "job_id",     limit: 4
+    t.integer  "total",      limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
 end
