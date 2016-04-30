@@ -35,23 +35,27 @@ class JobsController < ApplicationController
     Job.find_each(:batch_size => 1000) do |jobs|
       @exist_day = 0
       @days.each do |day|
-        record = Record.find_by(job_id: jobs.id, status: true, record_date: '2016-04-30')
+        @record = Record.find_by(job_id: jobs.id, record_date: '2016-04-30')
 
-        if record && record.status
+        if @record.status = 1
           @exist_day = @exist_day + 1
         end
       end
       @number = @exist_day / 30
+      @number = @number * 100
       score = jobs.scores.build(total: 0)
       score.save!
-      score.turnover_rates.build(number: @number).save!
+      score.turnover_rates.build(number: @exist_day).save!
     end
   end
 
   #找出所有職缺分數的中位數
   def median
-    @records = Record.find_each(:limit => 1000).map{ |r| r.total}
-    array =  @records.sort!
+    array = []
+    TurnoverRate.find_each(:batch_size => 1000) do |rate|
+      array << rate.number
+    end
+    array = array.sort!
     elements = array.count
     center =  elements / 2
     result = elements.even? ? (array[center] + array[center+1])/2 : array[center]
