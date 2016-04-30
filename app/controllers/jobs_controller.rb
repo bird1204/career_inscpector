@@ -56,10 +56,10 @@ class JobsController < ApplicationController
     array =  @records.sort!
     elements = array.count
     center =  elements / 2
-    elements.even? ? (array[center] + array[center+1])/2 : array[center]
+    result = elements.even? ? (array[center] + array[center+1])/2 : array[center]
   end
 
-  def get_total_score
+  def get_turnover_score
   end
 
   private
