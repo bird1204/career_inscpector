@@ -5,3 +5,25 @@
 .collection-item.avatar.company{
 	padding-left: 15px;
 }
+
+h5.company-data{
+  font-size: 20px;
+}
+
+h6.company-data{
+  font-size: 20px;
+}
+
+.related .card,.company-data .btn,.btn:hover{
+  box-shadow: none;
+}
+
+.company-data .btn:hover{
+  border:1px;
+}
+
+hr{
+  border: 0;
+  height: 1px;
+  background-color: #d4d4d4;
+}

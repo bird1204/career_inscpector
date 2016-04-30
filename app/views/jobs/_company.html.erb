@@ -1,7 +1,11 @@
-    <li class="collection-item avatar company">
-      <span class="title">公司名稱</span>
-      <p>公司地址<br>
-        電話
-      </p>
-      <a href="#!" class="secondary-content"><i class="material-icons">web</i></a>
-    </li>
+<li class="collection-item avatar company">
+  <%=link_to jobs_path(company_id: company.id, type: 'J') do %>
+  <span class="title"><%=company.name%></span>
+  <%end%>
+  <p><%=company.address%><br>
+    <%=company.phone%>
+  </p>
+  <%=link_to company.site, class: ' secondary-content', target: '_blank' do %>
+  <i class="material-icons">web</i>
+  <%end%>
+</li>

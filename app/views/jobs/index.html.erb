@@ -2,9 +2,15 @@
 <div class="container">
   <div class="row">
     <div class="col s12 m8 push-m2 main-list">
-      <h5>關鍵字：</h5>
+      <h5>關鍵字：<%=params[:name]%></h5>
     </div>
-    <%=render partial: 'jobs'%>
-    <%=render partial: 'companies'%>
+    <%=render partial: 'jobs' if %w(J A).include?(params[:type])%>
+    <%=render partial: 'companies' if %w(C A).include?(params[:type])%>
   </div>
 </div>
+<footer class="page-footer grey">
+  <div class="container">
+    <a class="black-text" href="http://unnamed.taipei">© 2016 Unnamed Studio</a>
+    <a class="grey-text text-lighten-4 right" href="mailto:g8071107@gmail.com">Contant Us.</a>
+  </div>
+</footer>

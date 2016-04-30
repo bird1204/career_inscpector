@@ -3,11 +3,13 @@
     <h6 class="grey-text text-darken-3" style="font-size:20px;">公司</h6>
   </div>
   <div class="col s6">
+    <%=link_to jobs_path(name: params[:name], type: 'C') do %>
     <p class="right grey-text" style="margin:0;">更多..</p>
+    <%end%>
   </div>
 </div>
 <div class="col s12 m8 push-m2 white ">
   <ul class="collection">
-    <%=render @companies%>
+    <%=render partial: 'company', collection: @companies, as: :company%>
   </ul>
 </div>

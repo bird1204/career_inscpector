@@ -2,8 +2,8 @@
   <ul class="right hide-on-med-and-down">
   </ul>
   <ul id="slide-out" class="side-nav">
-    <li><%=link_to '公司列表', jobs_path%></li>
-    <li><%=link_to '工作列表', jobs_path%></li>
+    <li><%=link_to '公司列表', jobs_path(name: params[:name], type: 'C')%></li>
+    <li><%=link_to '工作列表', jobs_path(name: params[:name], type: 'J')%></li>
   </ul>
 </nav>
 
@@ -24,11 +24,12 @@
       </p>
     </div>
     <div class="col push-m3 m6 s12 search">
-      <%= form_tag search_jobs_path , method: :get do %>
+      <%= form_tag jobs_path , method: :get do %>
       <div class="input-group">
         <p>輸入關鍵字試試看</p>
-        <input type="text" name="search">
-        <input type="submit" value="找工作" class="btn blue-grey">
+        <%= hidden_field_tag :type, 'A'%>
+        <%= text_field_tag :name%>
+        <%= submit_tag '找工作', class: "btn blue-grey"%>
       </div>
       <% end %>
     </div>
