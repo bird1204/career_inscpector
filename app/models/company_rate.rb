@@ -1,3 +1,2 @@
-class CompanyRate < ActiveRecord::Base
-  belongs_to :job
+class CompanyRate < ScoreDetail
 end

@@ -1,3 +1,2 @@
-class NetizenRate < ActiveRecord::Base
-  belongs_to :job
+class NetizenRate < ScoreDetail
 end

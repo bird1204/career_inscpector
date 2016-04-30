@@ -1,3 +1,2 @@
-class PopularRate < ActiveRecord::Base
-  belongs_to :job
+class PopularRate < ScoreDetail
 end
