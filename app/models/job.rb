@@ -1,4 +1,5 @@
 class Job < ActiveRecord::Base
+  acts_as_votable
   belongs_to :company
   has_many :records
   has_many :scores
@@ -12,13 +13,13 @@ class Job < ActiveRecord::Base
     return "無資料" unless records.present?
 
     return_str = "#{records.last.try(:pay_low)}" || '0'
-    
+
     if records.last.try(:pay_high) > 0
-      return_str << " ~ #{records.last.try(:pay_high)}" 
+      return_str << " ~ #{records.last.try(:pay_high)}"
     else
-      return_str << "以上" 
+      return_str << "以上"
     end
-    
+
     return return_str
   end
 end

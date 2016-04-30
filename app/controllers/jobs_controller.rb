@@ -1,5 +1,4 @@
 class JobsController < ApplicationController
-  acts_as_votable
 
   def index
     if params[:company_id].present?
