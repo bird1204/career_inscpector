@@ -1,3 +1,4 @@
+<%= javascript_include_tag "highcharts.js", "chartkick" %>
 <%=render partial: 'shared/nav_bar'%>
 <div class="container">
   <div class="row">
@@ -25,7 +26,9 @@
           <a class="waves-effect waves-light btn white grey-text text-darken-3"><i class="material-icons left green-text">thumb_up</i>讚</a>
           <a class="waves-effect waves-light btn white grey-text text-darken-3"><i class="material-icons left red-text">thumb_down</i>幹</a>
         </h5></div>
-        <img src="http://i.imgur.com/MdT7Vin.png" style="width:100%;">
+        <%= bar_chart({"熱門度" => @job.score.popular_rate.score, "離職率" => @job.score.turnover_rate.score, "網友評分" => @job.score.netizen_rate.score, "公司評分" => @job.score.company_rate.score}, discrete: true, library: {chart: {backgroundColor: nil}}) %>
+        <%#= pie_chart Goal.group(:name).count %>
+        <br> <br> <br>
         <hr>
         <div class="col s6">
           <h6 class="company-data"><i class="material-icons">attach_money</i>薪資</h5>
