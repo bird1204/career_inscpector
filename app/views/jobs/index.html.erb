@@ -1,1 +1,11 @@
-<%= @url %>
+<div class="row">
+  <div class="col-sm-9 col-lg-8 col-lg-offset-2">
+    <%= form_tag search_jobs_path , :method => :get, :class => "movies-search-form" do %>
+    <div class="input-group">
+      <input type="text" class="form-control input-lg" name="q" value="<%= params[:q] %>" placeholder="搜尋電影關鍵字...">
+      <button type="submit" class="btn btn-default btn-lg">
+      </button>
+    </div>
+    <% end %>
+  </div>
+</div>

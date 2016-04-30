@@ -1,7 +1,13 @@
 class JobsController < ApplicationController
 
   def index
-    @url = JSON.parse(Net::HTTP.get_response(URI.parse(URI.encode(url))).body)
+    #@url = JSON.parse(Net::HTTP.get_response(URI.parse(URI.encode(url))).body)
+  end
+
+  def search
+    if params[:search].present?
+    else
+    end
   end
 
 
