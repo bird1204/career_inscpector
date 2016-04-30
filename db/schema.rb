@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430050120) do
+ActiveRecord::Schema.define(version: 20160430060419) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.string   "phone"
     t.string   "site"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "company_rates", force: :cascade do |t|
+    t.integer  "score_id"
+    t.integer  "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,6 +36,20 @@ ActiveRecord::Schema.define(version: 20160430050120) do
     t.date     "appear_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "netizen_rates", force: :cascade do |t|
+    t.integer  "score_id"
+    t.integer  "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "popular_rates", force: :cascade do |t|
+    t.integer  "score_id"
+    t.integer  "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "records", force: :cascade do |t|
@@ -47,6 +68,13 @@ ActiveRecord::Schema.define(version: 20160430050120) do
   create_table "scores", force: :cascade do |t|
     t.integer  "job_id"
     t.integer  "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "turnover_rates", force: :cascade do |t|
+    t.integer  "score_id"
+    t.integer  "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
