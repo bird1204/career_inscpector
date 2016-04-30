@@ -1,6 +1,15 @@
+body{
+    margin:0;
+    padding:0;
+    background: #000 url('../images/background.jpg') center center fixed no-repeat;
+    -moz-background-size: cover;
+    background-size: cover;
+}
+
 .row.header{
 	margin-top: 5em;
 	display: none;
+	text-shadow:1px 1px 3px #000;
 }
 
 .row.header .subtitle{
@@ -15,16 +24,42 @@
 	padding-top: 20px;
 }
 
-.header .search form input{
-	width: 80%;
+.header .search form{
+	text-align: center;
+}
+
+.header .search form input[type=text]{
+	width: 90%;
+	background-color: rgba(200,200,200,0.5);
+    border: none;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    padding: 0 10px;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.header .search form input:focus{
+	border-bottom: none;
+}
+
+.header .search form p{
+	text-align: center;
+	text-shadow:none;
+	color: rgba(255,255,255,0.8);
+}
+
+.header .search form input[type=submit]{
+	box-shadow: none;
 }
 
 .main{
 	margin-top: 2em;
-	background-image: url('../images/background.jpg');
-	background-position:center;
-	background-repeat:no-repeat;
-	background-size:cover;
 }
 
 .main .sect1 p{
