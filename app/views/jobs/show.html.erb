@@ -9,12 +9,12 @@
     <div class="col s12">
       <div class="col s12 m4 white">
         <p class="grey-text text-darken-1">
-          <i class="material-icons">place</i> 
+          <i class="material-icons">place</i>
           <%=@job.company.name%><br>
           <i class="material-icons">phone</i>
           <%=@job.company.phone%>
         </p>
-        
+
         <h6><i class="material-icons">arrow_drop_down</i> 本公司其他職缺</h6>
         <ul class="collection">
           <%=render partial: 'job_block', collection: @job.company.jobs, as: :job%>
@@ -25,6 +25,18 @@
         <div class="col s6"><h5 class="company-data right">
           <a class="waves-effect waves-light btn white grey-text text-darken-3"><i class="material-icons left green-text">thumb_up</i>讚</a>
           <a class="waves-effect waves-light btn white grey-text text-darken-3"><i class="material-icons left red-text">thumb_down</i>幹</a>
+
+
+      <%= link_to like_job_path(@job), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        Upvote
+        <%= @job.get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_job_path(@job), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-chevron-down">
+        Downvote
+        <%= @job.get_downvotes.size %>
+      <% end %>
         </h5></div>
         <%= bar_chart({"熱門度" => @job.score.popular_rate.score, "離職率" => @job.score.turnover_rate.score, "網友評分" => @job.score.netizen_rate.score, "公司評分" => @job.score.company_rate.score}, discrete: true, library: {chart: {backgroundColor: nil}}) %>
         <%#= pie_chart Goal.group(:name).count %>

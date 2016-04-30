@@ -29,25 +29,23 @@ class JobsController < ApplicationController
     end
   end
 
-  #算每筆工作的流動率權重
   def score
-    #單次拉1000筆jobs作處理
-    @jobs = Job.find_each(:limit => 1000)
-    # 設定一個週期為三十天
-    @days = (30.days.ago.to_date..Date.today).map{ |date| date.strftime("%Y-%m-%d") }
+    @days = (1.days.ago.to_date..Date.today).map{ |date| date.strftime("%Y-%m-%d") }
 
-    #雙層迴圈就像雙層牛肉吉士堡一樣美味
-    @jobs.each do |job|
+    Job.find_each(:batch_size => 1000) do |jobs|
+      @exist_day = 0
       @days.each do |day|
-        record = Record.find(job_id: job.id, status: true, record_date: day)
-        if record.status?
+        record = Record.find_by(job_id: jobs.id, status: true, record_date: '2016-04-30')
+
+        if record && record.status
           @exist_day = @exist_day + 1
         end
       end
+      @number = @exist_day / 30
+      score = jobs.scores.build(total: 0)
+      score.save!
+      score.turnover_rates.build(number: @number).save!
     end
-
-    @exist_day = 0
-    @score = @exist_day / 30
   end
 
   #找出所有職缺分數的中位數
@@ -59,7 +57,16 @@ class JobsController < ApplicationController
     result = elements.even? ? (array[center] + array[center+1])/2 : array[center]
   end
 
-  def get_turnover_score
+  def upvote
+    @job = Job.find(params[:id])
+    @job.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @job = Job.find(params[:id])
+    @job.downvote_by current_user
+    redirect_to :back
   end
 
   private
