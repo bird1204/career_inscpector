@@ -1,5 +1,4 @@
 class JobsController < ApplicationController
-
   def index
     if params[:company_id].present?
       @jobs = Job.where(company_id: params[:company_id])
@@ -7,6 +6,11 @@ class JobsController < ApplicationController
       @jobs = Job.where('name like ?',"%#{params[:name]}%")
       @companies = Company.where('name like ?', "%#{params[:name]}%")
     end
+  end
+
+  def show
+    @job = Job.find(params[:id])
+    @recommend_jobs = Job.where('name like ? AND id != ?', "%#{@job.name[0..3]}%", @job.id)
   end
 
   def search
