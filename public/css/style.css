@@ -1,11 +1,3 @@
-body{
-    margin:0;
-    padding:0;
-    background: #000 url('../images/background.jpg') center center fixed no-repeat;
-    -moz-background-size: cover;
-    background-size: cover;
-}
-
 nav{
 	box-shadow: none;
 }
@@ -95,4 +87,8 @@ nav{
 	width: 80%;
     padding-left: 20%;
     text-align: center;
+}
+
+.main-list{
+	margin-top: 4em;
 }
