@@ -2,8 +2,9 @@
   <div class="col-sm-9 col-lg-8 col-lg-offset-2">
     <%= form_tag search_jobs_path , :method => :get, :class => "movies-search-form" do %>
     <div class="input-group">
-      <input type="text" class="form-control input-lg" name="q" value="<%= params[:q] %>" placeholder="搜尋電影關鍵字...">
+      <input type="text" class="form-control input-lg" name="search" value="<%= params[:search] %>" placeholder="搜尋工作">
       <button type="submit" class="btn btn-default btn-lg">
+        找工作
       </button>
     </div>
     <% end %>
