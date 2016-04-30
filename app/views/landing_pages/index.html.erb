@@ -1,9 +1,19 @@
-<!--header-->
+<nav class="transparent">
+  <ul class="right hide-on-med-and-down">
+  </ul>
+  <ul id="slide-out" class="side-nav">
+    <li><%=link_to '公司列表', jobs_path%></li>
+    <li><%=link_to '工作列表', jobs_path%></li>
+  </ul>
+</nav>
+
 <div class="container header">
   <div class="row header">
     <div class="col m3 l6 s12">
       <%=image_tag 'logo'%>
     </div>
+    <div class="col l6"><a href="#" data-activates="slide-out" class="button-collapse white-text right"><i class="material-icons">reorder</i></a></div>
+
     <div class="col m10 s12 subtitle">
       <h4 class="white-text">從資料找出好職缺<br>讓 Career Inspector 找出屬於你的好位置。</h4>
     </div>
