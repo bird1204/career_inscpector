@@ -3,5 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   $('.row.header').fadeIn 2000
+  $('.button-collapse').sideNav
+    menuWidth: 300
+    edge: 'right'
+    closeOnClick: true
   return
 
