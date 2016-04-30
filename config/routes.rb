@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Root
-  root 'jobs#index'
+  root 'landing_pages#index'
 
   resources :jobs do
     member do

@@ -1,0 +1,94 @@
+nav{
+	box-shadow: none;
+}
+
+.header .button-collapse i{
+	padding-top: 20px;
+	font-size: 32px;
+	text-shadow:none;
+	color: rgba(255,255,255.0.5);
+}
+
+.row.header{
+	margin-top: 3em;
+	display: none;
+	text-shadow:1px 1px 3px #000;
+}
+
+.row.header .subtitle{
+	padding-top: 2em;
+}
+
+.row.header .subtitle h3{
+	line-height: 150%;
+}
+
+.header .search{
+	padding-top: 20px;
+}
+
+.header .search form{
+	text-align: center;
+}
+
+.header .search form input[type=text]{
+	width: 90%;
+	background-color: rgba(200,200,200,0.5);
+    border: none;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    padding: 0 10px;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+
+.header .search form input:focus{
+	border-bottom: none;
+}
+
+.header .search form p{
+	text-align: center;
+	text-shadow:none;
+	color: rgba(255,255,255,0.8);
+}
+
+.header .search form input[type=submit]{
+	box-shadow: none;
+}
+
+.main{
+	margin-top: 2em;
+}
+
+.main .sect1 p{
+	padding-bottom: 25px;
+}
+
+.main.container .sect1 .row{
+	padding-bottom: 25px;
+}
+
+.main h4{
+	letter-spacing: 10px;
+}
+
+.sect2{
+	padding: 2em 0;
+	text-align: center;
+}
+
+.sect .sect-text{
+	letter-spacing: 3px;
+	width: 80%;
+    padding-left: 20%;
+    text-align: center;
+}
+
+.main-list{
+	margin-top: 4em;
+}
