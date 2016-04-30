@@ -26,7 +26,7 @@
           <a class="waves-effect waves-light btn white grey-text text-darken-3"><i class="material-icons left green-text">thumb_up</i>讚</a>
           <a class="waves-effect waves-light btn white grey-text text-darken-3"><i class="material-icons left red-text">thumb_down</i>幹</a>
         </h5></div>
-        <%= bar_chart({"熱門度" => 20, "離職率" => 50, "網友評分" => 10, "公司評分" => 20}, discrete: true, library: {chart: {backgroundColor: nil}}) %>
+        <%= bar_chart({"熱門度" => @job.score.popular_rate.score, "離職率" => @job.score.turnover_rate.score, "網友評分" => @job.score.netizen_rate.score, "公司評分" => @job.score.company_rate.score}, discrete: true, library: {chart: {backgroundColor: nil}}) %>
         <%#= pie_chart Goal.group(:name).count %>
         <br> <br> <br>
         <hr>

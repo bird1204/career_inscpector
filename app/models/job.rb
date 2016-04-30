@@ -6,7 +6,7 @@ class Job < ActiveRecord::Base
 
   def score
     return nil unless scores.present?
-    scores.last.try(:total)
+    scores.last
   end
 
   def record
