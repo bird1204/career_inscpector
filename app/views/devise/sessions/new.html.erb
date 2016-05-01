@@ -1,0 +1,45 @@
+<%=render partial: 'shared/nav_bar'%>
+<div class="container" style="min-height:calc(100vh - 174px); margin-top:50px;">
+  <div class="row">
+    <div class="col s12 m8 push-m2 ">
+      <h6 class="grey-text text-darken-3" style="font-size:20px;">登入</h6>
+    </div>
+    <div class="col s12 m8 push-m2 white ">
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="field">
+          <%= f.label :email , '電子郵件' %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password , '密碼' %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+        </div>
+
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me , '記住帳號' %>
+          </div>
+        <% end -%>
+
+        <div class="actions">
+          <%= f.submit "登入" , class:"btn grey darken-2" %>
+          <br>
+          <%= render "devise/shared/links" %>
+          <br>
+        </div>
+      <% end %>
+
+     
+
+    </div>
+  </div>
+</div>
+<footer class="page-footer grey">
+  <div class="container">
+    <a class="black-text" href="http://unnamed.taipei">© 2016 Unnamed Studio</a>
+    <a class="grey-text text-lighten-4 right" href="mailto:g8071107@gmail.com">Contant Us.</a>
+  </div>
+</footer>

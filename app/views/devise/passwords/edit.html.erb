@@ -1,0 +1,40 @@
+<%=render partial: 'shared/nav_bar'%>
+<div class="container" style="min-height:calc(100vh - 174px); margin-top:50px;">
+  <div class="row">
+    <div class="col s12 m8 push-m2 white ">
+
+      <h2>Change your password</h2>
+
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+        <%= devise_error_messages! %>
+        <%= f.hidden_field :reset_password_token %>
+
+        <div class="field">
+          <%= f.label :password, "New password" %><br />
+          <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+          <% end %>
+          <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "Confirm new password" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Change my password" %>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+
+    </div>
+  </div>
+</div>
+<footer class="page-footer grey">
+  <div class="container">
+    <a class="black-text" href="http://unnamed.taipei">© 2016 Unnamed Studio</a>
+    <a class="grey-text text-lighten-4 right" href="mailto:g8071107@gmail.com">Contant Us.</a>
+  </div>
+</footer>

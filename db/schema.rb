@@ -33,15 +33,15 @@ ActiveRecord::Schema.define(version: 20160430182205) do
 
   create_table "records", force: :cascade do |t|
     t.integer  "job_id",      limit: 4
-    t.boolean  "status",                    default: false
+    t.boolean  "status"
     t.integer  "pay_low",     limit: 4
     t.integer  "pay_high",    limit: 4
     t.integer  "need_min",    limit: 4
     t.integer  "need_max",    limit: 4
     t.integer  "candidate",   limit: 4
     t.date     "record_date"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.text     "description", limit: 65535
   end
 
