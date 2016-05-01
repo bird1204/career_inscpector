@@ -1,10 +1,10 @@
 class JobsController < ApplicationController
   def index
     if params[:company_id].present?
-      @jobs = Job.where(company_id: params[:company_id])
+      @jobs = Job.where(company_id: params[:company_id]).limit(10).order('RAND()')
     else
-      @jobs = Job.where('name like ?',"%#{params[:name]}%")
-      @companies = Company.where('name like ?', "%#{params[:name]}%")
+      @jobs = Job.where('name like ?',"%#{params[:name]}%").limit(10).order('RAND()')
+      @companies = Company.where('name like ?', "%#{params[:name]}%").limit(10).order('RAND()')
     end
   end
 

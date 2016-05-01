@@ -1,6 +1,6 @@
 <li class="collection-item avatar">
   <i class="circle green"><%=job.score.total%></i>
-  <%=link_to job_path(job.id) do %>
+  <%=link_to job_path(job.id), data: { no_turbolink: true } do %>
   <span class="title"><%=job.name%></span>
   <%end%>
   <p><%=job.company.name%><br>

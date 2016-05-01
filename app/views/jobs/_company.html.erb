@@ -1,5 +1,5 @@
 <li class="collection-item avatar company">
-  <%=link_to jobs_path(company_id: company.id, type: 'J') do %>
+  <%=link_to jobs_path(company_id: company.id, type: 'J'), data: { no_turbolink: true } do %>
   <span class="title"><%=company.name%></span>
   <%end%>
   <p><%=company.address%><br>

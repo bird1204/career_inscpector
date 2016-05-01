@@ -1,11 +1,13 @@
 <div class="col s6">
   <div class="card grey lighten-5">
     <div class="card-content">
+      <%=link_to job_path(job.id), data: { no_turbolink: true } do %>
       <span class="card-title"><%=job.name%></span>
+      <%end%>
       <p><%=job.company.name%></p>
     </div>
     <div class="card-action">
-      <a><%#=job.record.paid_str%></a>
+      <a><%=job.record.paid_str%></a>
     </div>
   </div>
 </div>
