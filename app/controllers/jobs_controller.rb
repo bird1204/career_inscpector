@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+  before_action :authenticate_user!, :only => [:upvote, :downvote]
   def index
     if params[:company_id].present?
       @jobs = Job.where(company_id: params[:company_id]).limit(10).order('RAND()')

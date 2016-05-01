@@ -1,26 +1,35 @@
 <style>
 .btn{
-  box-shadow: none;
+box-shadow: none;
 }
 </style>
-
 <div class="navbar-fixed">
   <nav class="white">
     <div class="nav-wrapper container">
       <%= link_to root_path, class: 'brand-logo' do %>
       <%= image_tag 'logo-b'%>
       <%end%>
-
       <a href="#" data-activates="slide-out" class="button-collapse grey-text"><i class="material-icons">menu</i></a>
       <ul class="side-nav" id="slide-out">
         <li><%=link_to '公司列表', jobs_path(name: params[:name], type: 'C'), class: "grey-text text-darken-3"%></a></li>
         <li><%=link_to '職缺列表', jobs_path(name: params[:name], type: 'J'), class: "grey-text text-darken-3"%></li>
-      </ul>
-
-      <ul class="right hide-on-med-and-down">
-        <li><%=link_to '公司列表', jobs_path(name: params[:name], type: 'C'), class: "grey-text text-darken-3"%></a></li>
-        <li><%=link_to '職缺列表', jobs_path(name: params[:name], type: 'J'), class: "grey-text text-darken-3"%></li>
-      </ul>
-    </div>
-  </nav>
+        <% if !current_user %>
+      <il><%= link_to "註冊", new_user_registration_path, class: "grey-text text-darken-3" %></li>
+      <li><%= link_to "登入", new_user_session_path, class: "grey-text text-darken-3" %></li>
+      <% else %>
+      <li><%= link_to "登出", destroy_user_session_path, method: :delete, class: "grey-text text-darken-3" %></li>
+      <% end %>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+      <li><%=link_to '公司列表', jobs_path(name: params[:name], type: 'C'), class: "grey-text text-darken-3"%></a></li>
+      <li><%=link_to '職缺列表', jobs_path(name: params[:name], type: 'J'), class: "grey-text text-darken-3"%></li>
+      <% if !current_user %>
+    <il><%= link_to "註冊", new_user_registration_path, class: "grey-text text-darken-3" %></li>
+    <li><%= link_to "登入", new_user_session_path, class: "grey-text text-darken-3" %></li>
+    <% else %>
+    <li><%= link_to "登出", destroy_user_session_path, method: :delete, class: "grey-text text-darken-3" %></li>
+    <% end %>
+  </ul>
+</div>
+</nav>
 </div>
