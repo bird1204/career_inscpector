@@ -12,7 +12,7 @@ class BadBoss
   def fetch_rate
     return JSON.parse(Net::HTTP.get_response(URI.parse(URI.encode(url))).body)['rate']
   rescue StandardError => e
-    return rand(0..10) * 10
+    return rand(0..100) / 10.0
   end
 
   def url

@@ -22,9 +22,9 @@ class JobRate
     score.netizen_rates.build(number: cal_netizen_rate).save!
     total = (cal_netizen_rate * 0.1 + cal_company_rate * 0.2 + cal_popular_rate * 0.2 + cal_turnover_rate * 0.5)
     score.total = if total >= 100
-      total / (100 / total)
+      total / 100.0
     else
-      total * (100 / total)
+      total * (total / 100.0)
     end
     score.save!
   end
@@ -34,7 +34,7 @@ class JobRate
   def cal_turnover_rate
     exist_day = 0
     (1.days.ago.to_date..Date.today).map{ |date| date.strftime("%Y-%m-%d") }.each do |day|
-      exist_day += 1 if !Record.find_by(job_id: @job.id, record_date: '2016-04-30').try(:status).blank?
+      exist_day += 1 if !Record.find_by(job_id: @job.id, record_date: day).try(:status).blank?
     end
     rate = ((exist_day / 30.0) * 100) - @median
     return 0 if rate >= 25

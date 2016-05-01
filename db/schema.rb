@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20160430182205) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "company_rates", force: :cascade do |t|
+    t.integer  "score_id",   limit: 4
+    t.integer  "score",      limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "jobs", force: :cascade do |t|
     t.integer  "company_id",  limit: 4
     t.string   "name",        limit: 255
@@ -29,6 +36,20 @@ ActiveRecord::Schema.define(version: 20160430182205) do
     t.date     "appear_date"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "netizen_rates", force: :cascade do |t|
+    t.integer  "score_id",   limit: 4
+    t.integer  "score",      limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  create_table "popular_rates", force: :cascade do |t|
+    t.integer  "score_id",   limit: 4
+    t.integer  "score",      limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "records", force: :cascade do |t|
@@ -58,6 +79,13 @@ ActiveRecord::Schema.define(version: 20160430182205) do
     t.float    "total",      limit: 24
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+  end
+
+  create_table "turnover_rates", force: :cascade do |t|
+    t.integer  "score_id",   limit: 4
+    t.integer  "score",      limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "users", force: :cascade do |t|

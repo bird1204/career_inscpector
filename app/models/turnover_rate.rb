@@ -6,8 +6,9 @@ class TurnoverRate < ScoreDetail
       array << rate.number if rate.number.present?
     end
     array = array.sort!
+
     elements = array.count
-    p "elements ===== #{elements}"
+    return 0 if elements < 1
     center =  elements / 2
     return elements.even? ? (array[center - 1] + array[center])/2 : array[center - 1]
   end
