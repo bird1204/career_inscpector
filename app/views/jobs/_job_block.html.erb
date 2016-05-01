@@ -1,6 +1,12 @@
 <%=link_to job_path(job.id), data: { no_turbolink: true } do %>
 <li class="collection-item avatar">
-  <i class="circle green"><%=job.score.total%></i>
+  <i class="circle green">
+   <% if job.score.total > 9.9 %>
+    <%=job.score.total.round(1) - 1.0 %>
+    <% else %>
+    <%=job.score.total.round(1)%>
+   <% end %>
+   </i>
   <span class="title"><%=job.name%></span>
   <p>
     <%=job.record.paid_str%>

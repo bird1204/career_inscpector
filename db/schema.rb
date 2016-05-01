@@ -22,13 +22,6 @@ ActiveRecord::Schema.define(version: 20160430182205) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "company_rates", force: :cascade do |t|
-    t.integer  "score_id",   limit: 4
-    t.integer  "score",      limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
   create_table "jobs", force: :cascade do |t|
     t.integer  "company_id",  limit: 4
     t.string   "name",        limit: 255
@@ -100,3 +93,4 @@ ActiveRecord::Schema.define(version: 20160430182205) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+end
