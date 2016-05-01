@@ -45,9 +45,6 @@
         <p><%=@job.record.description%>
         </p>
         <hr>
-        <h6 class="company-data"><i class="material-icons">description</i> 友站連結</h5>
-        <p><%=link_to 'http://www.badboss.taipei', 'http://www.badboss.taipei/company/三立電視股份有限公司' if @job.company_id = 104 %></p>
-        <hr>
         <h6 class="company-data"><i class="material-icons">arrow_drop_down</i> 相關職缺</h6>
         <div class="row related">
           <%=render partial: 'recommend_job', collection: @recommend_jobs, as: :job%>
