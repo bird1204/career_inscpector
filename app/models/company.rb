@@ -13,38 +13,26 @@ class Company < ActiveRecord::Base
   end
 
   def sync_method data
-
-    @company = Company.find_by_name(data['NAME'])
-    if @company.present?
-
-    else
-      @company = Company.new
-    end
+    @company = Company.find_or_initialize_by(name: data['NAME'])
     @company.name = data['NAME']
     @company.address = data['ADDRESS']
     @company.site = data['LINK']
     @company.save!
 
     @job = @company.jobs.find_by_uuid(data['J'])
-    if @job.present?
-
-    elsif
-      @job = @company.jobs.find_by_name(data['JOB'])
-    else
-      @job = Job.new
-      @job.company_id = @company.id
+    if @job.blank?
+      @job = @company.jobs.find_or_initialize_by(name: data['JOB'])
     end
+    @job.company_id = @company.id
     @job.uuid = data['J']
     @job.name = data['JOB']
     @job.appear_date = data['APPEAR_DATE']
     @job.save!
 
-
-    @records = @job.records.new
+    @records = @job.records.build
     @records.status = "true"
     @records.pay_low = data['SAL_MONTH_LOW']
     @records.pay_high = data['SAL_MONTH_HIGH']
-    # @records.candidate =
     @records.need_min = data['NEED_EMP']
     @records.need_max = data['NEED_EMP1']
     @records.record_date = (Date.today)
