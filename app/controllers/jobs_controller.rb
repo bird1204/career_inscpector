@@ -13,22 +13,6 @@ class JobsController < ApplicationController
     @recommend_jobs = Job.where('name like ? AND id != ?', "%#{@job.name[0..3]}%", @job.id)
   end
 
-  def search
-    if params[:search].present?
-      @url = "http://www.104.com.tw/i/apis/jobsearch.cfm?kws=#{params[:search]}&page=1&pgsz=2000&area=6001001000&order=2&fmt=8&cols=J,JOB,NAME,APPEAR_DATE,NEED_EMP,NEED_EMP1,ADDRESS"
-    else
-      @url = "ㄏ"
-    end
-    @result = JSON.parse(Net::HTTP.get_response(URI.parse(URI.encode(@url))).body)
-    @recordcount = @result['RECORDCOUNT']
-    @pagecount = @result['PAGECOUNT']
-    @page = @result['PAGE']
-    @totalpage = @result['TOTALPAGE']
-    @datas = @result['data']
-    @datas.each do |data|
-    end
-  end
-
   def score
     @days = (1.days.ago.to_date..Date.today).map{ |date| date.strftime("%Y-%m-%d") }
     @exist_day = 0
@@ -73,11 +57,5 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     @job.downvote_by current_user
     redirect_to :back
-  end
-
-  private
-
-  def method_name
-
   end
 end

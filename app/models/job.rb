@@ -4,6 +4,11 @@ class Job < ActiveRecord::Base
   has_many :records
   has_many :scores
 
+  def self.all_vote
+    (Job.all.collect{ |job| job.get_upvotes.size }.sum.to_f / Job.all.collect{ |job| job.votes_for.size }.sum.to_f) * 100 
+    
+  end
+
   def score
     return nil unless scores.present?
     scores.last
