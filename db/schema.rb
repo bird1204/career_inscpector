@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160430134655) do
+ActiveRecord::Schema.define(version: 20160430182205) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -33,21 +33,21 @@ ActiveRecord::Schema.define(version: 20160430134655) do
 
   create_table "records", force: :cascade do |t|
     t.integer  "job_id",      limit: 4
-    t.boolean  "status"
+    t.boolean  "status",                    default: false
     t.integer  "pay_low",     limit: 4
     t.integer  "pay_high",    limit: 4
     t.integer  "need_min",    limit: 4
     t.integer  "need_max",    limit: 4
     t.integer  "candidate",   limit: 4
     t.date     "record_date"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.text     "description", limit: 65535
   end
 
   create_table "score_details", force: :cascade do |t|
     t.string   "type",       limit: 255
-    t.integer  "score",      limit: 4
+    t.float    "number",     limit: 24
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "score_id",   limit: 4
@@ -55,9 +55,9 @@ ActiveRecord::Schema.define(version: 20160430134655) do
 
   create_table "scores", force: :cascade do |t|
     t.integer  "job_id",     limit: 4
-    t.integer  "total",      limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.float    "total",      limit: 24
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "users", force: :cascade do |t|
