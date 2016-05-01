@@ -3,11 +3,12 @@ class TurnoverRate < ScoreDetail
   def self.median
     array = []
     find_each(:batch_size => 1000) do |rate|
-      array << rate.number
+      array << rate.number if rate.number.present?
     end
     array = array.sort!
     elements = array.count
+    p "elements ===== #{elements}"
     center =  elements / 2
-    return elements.even? ? (array[center] + array[center+1])/2 : array[center]
+    return elements.even? ? (array[center - 1] + array[center])/2 : array[center - 1]
   end
 end

@@ -1,3 +1,4 @@
+require 'classes/bad_boss'
 class JobRate
   attr_reader :netizen_rate, :popular_rate, :company_rate, :turnover_rate, :total, :median
   attr_writer :job
@@ -33,7 +34,7 @@ class JobRate
   def cal_turnover_rate
     exist_day = 0
     (1.days.ago.to_date..Date.today).map{ |date| date.strftime("%Y-%m-%d") }.each do |day|
-      exist_day += 1 unless Record.find_by(job_id: @job.id, record_date: '2016-04-30').status.blank?
+      exist_day += 1 if !Record.find_by(job_id: @job.id, record_date: '2016-04-30').try(:status).blank?
     end
     rate = ((exist_day / 30.0) * 100) - @median
     return 0 if rate >= 25
@@ -50,11 +51,23 @@ class JobRate
   end
 
   def cal_popular_rate
-    return (@job.record.candidate.to_f / Record.where(record_date: Time.zone.today.to_s(:db)).avg(:candidate).to_f) * 100
+    a = @job.record.candidate.to_f
+    b = Record.where(record_date: Time.zone.today.to_s(:db)).average(:candidate).to_f
+    if a >= b
+      return a / 100.0
+    else
+      return (a / b) * 100
+    end
   end
 
   def cal_netizen_rate
-    return (@job.get_upvotes.size.to_f / @job.votes_for.size.to_f) * 100
+    a = @job.get_upvotes.size.to_f || 0
+    b = @job.votes_for.size.to_f || 0
+    if a >= b
+      return a / 100.0
+    else
+      return (a / b) * 100
+    end
   end
 
   def cal_company_rate
